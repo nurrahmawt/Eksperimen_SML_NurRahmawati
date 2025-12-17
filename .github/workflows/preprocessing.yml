@@ -23,7 +23,7 @@ jobs:
 
     - name: Run preprocessing script
       run: |
-        python preprocessing/automate_Nur Rahmawati.py
+        python preprocessing/automate_NurRahmawati.py
 
     - name: Upload processed dataset
       uses: actions/upload-artifact@v4
