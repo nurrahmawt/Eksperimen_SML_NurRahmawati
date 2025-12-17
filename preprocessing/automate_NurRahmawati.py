@@ -30,14 +30,7 @@ for col in num_cols:
     outliers = df[(df[col] < lower) | (df[col] > upper)]
     print(col, "→", outliers.shape[0], "outlier")
 
-output_dir = os.path.join(BASE_DIR, "..", "houseprices_preprocessing")
+output_path = os.path.join(BASE_DIR, "houseprices_preprocessing", "house_data_processed.csv")
+df.to_csv(output_path, index=False)
 
-# JANGAN LUPA: Bikin foldernya kalau belum ada biar nggak OSError!
-if not os.path.exists(output_dir):
-    os.makedirs(output_dir)
-
-# Simpan filenya
-output_file = os.path.join(output_dir, "house_data_processed.csv")
-df.to_csv(output_file, index=False)
-
-print(f"Success! file is saved in: {output_file}")
+print(f"Success! file is saved in: {output_path}")
