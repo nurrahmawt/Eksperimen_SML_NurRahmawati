@@ -7,7 +7,6 @@ from sklearn.preprocessing import StandardScaler
 
 # Load dataset
 df = pd.read_csv('houseprices_raw\house_prices.csv')
-df.head()
 
 # Data Preprocessing
 df.duplicated().sum()
@@ -30,8 +29,6 @@ for col in num_cols:
     print(col, "→", outliers.shape[0], "outlier")
 
 df.to_csv(
-    "preprocessing/namadataset_preprocessing/house_data_processed.csv",
+    "preprocessing/house_preprocessing/house_data_processed.csv",
     index=False
 )
-
-df.head()
