@@ -6,7 +6,7 @@ import seaborn as sns
 from sklearn.preprocessing import StandardScaler
 
 # Load dataset
-df = pd.read_csv('houseprices_raw/house_prices.csv')
+df = pd.read_csv('Eksperimen_SML_NurRahmawati/houseprices_raw/house_prices.csv')
 
 # Data Preprocessing
 df.duplicated().sum()
