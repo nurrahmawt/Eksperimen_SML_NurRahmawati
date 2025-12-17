@@ -5,8 +5,10 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.preprocessing import StandardScaler
 
-# Load dataset
-df = pd.read_csv('Eksperimen_SML_NurRahmawati/houseprices_raw/house_prices.csv')
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+input_path = os.path.join(BASE_DIR, "..", "houseprices_raw", "house_prices.csv")
+df = pd.read_csv(input_path)
 
 # Data Preprocessing
 df.duplicated().sum()
@@ -28,7 +30,14 @@ for col in num_cols:
     outliers = df[(df[col] < lower) | (df[col] > upper)]
     print(col, "→", outliers.shape[0], "outlier")
 
-df.to_csv(
-    "preprocessing/houseprices_preprocessing/house_data_processed.csv",
-    index=False
-)
+output_dir = os.path.join(BASE_DIR, "..", "houseprices_preprocessing")
+
+# JANGAN LUPA: Bikin foldernya kalau belum ada biar nggak OSError!
+if not os.path.exists(output_dir):
+    os.makedirs(output_dir)
+
+# Simpan filenya
+output_file = os.path.join(output_dir, "house_data_processed.csv")
+df.to_csv(output_file, index=False)
+
+print(f"Success! file is saved in: {output_file}")
