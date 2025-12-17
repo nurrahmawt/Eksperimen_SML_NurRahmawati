@@ -29,6 +29,6 @@ for col in num_cols:
     print(col, "→", outliers.shape[0], "outlier")
 
 df.to_csv(
-    "preprocessing/house_preprocessing/house_data_processed.csv",
+    "preprocessing/houses_preprocessing/house_data_processed.csv",
     index=False
 )
